@@ -2,10 +2,13 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# System deps for OpenCV
+# System dependencies for OpenCV and MediaPipe
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglib2.0-0 \
+    libegl1 \
+    libgles2 \
+    libgl1-mesa-dri \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
